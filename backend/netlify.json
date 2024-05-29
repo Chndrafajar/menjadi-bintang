@@ -1,0 +1,13 @@
+{
+  "build": {
+    "publish": "public",
+    "command": "node server.js"
+  },
+  "redirects": [
+    {
+      "from": "/*",
+      "to": "/server.js",
+      "status": 200
+    }
+  ]
+}
