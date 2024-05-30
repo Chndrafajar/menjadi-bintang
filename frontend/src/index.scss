@@ -726,7 +726,7 @@
   margin-top: 20px;
   .container {
     .row {
-      .col-md-7 {
+      .col-lg-7 {
         .card {
           border: none;
           border-radius: 10px;
@@ -744,6 +744,7 @@
             font-weight: 600;
           }
           .info-item {
+            margin-top: 15px;
             display: flex;
             gap: 20px;
             .items {
@@ -798,7 +799,7 @@
           }
         }
       }
-      .col-md-5 {
+      .col-lg-5 {
         .profile-company {
           border: 1px solid #dee2e6;
           border-radius: 5px;
@@ -1219,7 +1220,20 @@
   }
 }
 
+@media only screen and (max-width: 1200px) {
+  .stories .container .row .col-md-7 h2 {
+    font-size: 35px;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  .stories .container .row .col-md-7 h2 {
+    font-size: 29px;
+  }
+}
 @media only screen and (max-width: 766px) {
+  .stories .container .row .col-md-7 h2 {
+    font-size: 35px;
+  }
   .hero .container .row .col-md-6 {
     margin-bottom: 60px;
     .images img {
@@ -1273,9 +1287,25 @@
       }
     }
   }
+  .detail-jobs .container .row .col-lg-7 .info .info-item {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .detail-jobs .container .row .col-lg-7 .desc .desc-icons {
+    flex-direction: column;
+    align-items: start;
+    gap: 25px;
+
+    .btn-apply {
+      width: 100%;
+    }
+  }
 }
 
 @media only screen and (max-width: 430px) {
+  .stories .container .row .col-md-7 h2 {
+    font-size: 29px;
+  }
   .navbar-mobile {
     padding: 15px 20px;
   }
@@ -1313,6 +1343,9 @@
 }
 
 @media only screen and (max-width: 380px) {
+  .stories .container .row .col-md-7 h2 {
+    font-size: 24px;
+  }
   .hero .container .row .col-md-6 {
     h1 {
       font-size: 40px;

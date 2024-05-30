@@ -90,7 +90,7 @@ export default function DetailJobs() {
             </nav>
           </div>
           <div className="row">
-            <div className="col-md-7">
+            <div className="col-lg-7">
               <div className="card">
                 <img src={`https://menjadi-bintang-server.vercel.app/${job?.thumbnail}`} />
               </div>
@@ -128,7 +128,7 @@ export default function DetailJobs() {
                 </div>
               </div>
             </div>
-            <div className="col-md-5">
+            <div className="col-lg-5">
               <div className="profile-company">
                 <div className="title">
                   <HiBuildingOffice /> <span>Profile Company</span>

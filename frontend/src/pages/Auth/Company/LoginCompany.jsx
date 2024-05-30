@@ -8,6 +8,7 @@ const LoginCompany = () => {
   const [password, setPassword] = useState('');
 
   const [auth, setAuth] = useAuth();
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -15,6 +16,7 @@ const LoginCompany = () => {
   //form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const res = await axios.post('https://menjadi-bintang-server.vercel.app/api/v1/company/login', {
         email,
@@ -30,7 +32,10 @@ const LoginCompany = () => {
         });
 
         localStorage.setItem('auth', JSON.stringify(res.data));
-        navigate(location.state || '/');
+        setTimeout(() => {
+          setLoading(false);
+          navigate(location.state || '/');
+        }, 1000);
       } else {
         swal('Miss!', res.data.message, 'error');
       }
@@ -63,9 +68,15 @@ const LoginCompany = () => {
             <div className="form-item">
               <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
-            <button className="btn-auth" type="submit">
-              Login
-            </button>
+            {loading ? (
+              <button className="btn-auth" type="submit">
+                Loading...
+              </button>
+            ) : (
+              <button className="btn-auth" type="submit">
+                Login
+              </button>
+            )}
           </form>
           <div style={{ marginTop: '15px' }}>
             <span>

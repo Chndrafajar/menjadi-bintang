@@ -8,9 +8,11 @@ const RegisterCompany = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const res = await axios.post('https://menjadi-bintang-server.vercel.app/api/v1/company/register', {
         companyName,
@@ -19,7 +21,10 @@ const RegisterCompany = () => {
       });
       if (res && res.data.success) {
         swal('Good Job!', res.data.message, 'success');
-        navigate('/company/login');
+        setTimeout(() => {
+          setLoading(false);
+          navigate('/company/login');
+        }, 1000);
       } else {
         swal('Miss!', res.data.message, 'error');
       }
@@ -51,9 +56,15 @@ const RegisterCompany = () => {
             <div className="form-item">
               <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} value={password} />
             </div>
-            <button className="btn-auth" type="submit">
-              Register
-            </button>
+            {loading ? (
+              <button className="btn-auth" type="submit">
+                Loading...
+              </button>
+            ) : (
+              <button className="btn-auth" type="submit">
+                Register
+              </button>
+            )}
           </form>
           <div style={{ marginTop: '15px' }}>
             <span>
